@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "poppins", "san-serif";
+}
+
+body {
+  font-size: 1.8rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.4rem;
+  font-size: 2rem;
+}
+
+.logo {
+  width: 4.8rem;
+}
+
+.app {
+  max-width: 80rem;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.balance {
+  grid-column: 1 / span 2;
+  margin: 3.6rem 0;
+  background-color: salmon;
+}
+
+.movements {
+  grid-row: 2 / span 3;
+  background-color: beige;
+}
+
+.summary {
+  grid-row: 5/6;
+}
