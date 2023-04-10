@@ -106,6 +106,9 @@ nav {
   padding: 2rem;
 }
 
+.operation h2 {
+  font-size: 1.8rem;
+}
 .operation--transfer {
   background-color: darkgoldenrod;
 }
@@ -147,6 +150,7 @@ nav {
   font-size: 1.4rem;
   justify-self: center;
 }
+
 /* footer area */
 .summary {
   grid-row: 5/6;
