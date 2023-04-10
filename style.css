@@ -11,8 +11,10 @@ html {
 body {
   font-size: 1.6rem;
   height: 100vh;
+  background-color: #f6f1f1;
 }
 
+/* nav area */
 nav {
   display: flex;
   align-items: center;
@@ -25,6 +27,20 @@ nav {
   width: 4.8rem;
 }
 
+.login__input {
+  border: none;
+  padding: 1rem;
+  border-radius: 11px;
+}
+
+.login__btn {
+  border: none;
+  width: 4.8rem;
+  cursor: pointer;
+
+  font-size: 2.4rem;
+}
+/*  */
 .app {
   max-width: 80rem;
   display: grid;
@@ -34,19 +50,52 @@ nav {
   margin: 0 auto;
 }
 
+/* header area */
 .balance {
   grid-column: 1 / span 2;
-  background-color: salmon;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.balance__date {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.balance__value {
+  font-size: 3rem;
+}
+
+/* movements area */
 .movements {
   grid-row: 2 / span 3;
-  background-color: beige;
+  background-color: #fff;
 }
 
+.movements__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 4px solid #f6f1f1;
+  border-radius: 4px;
+}
+
+/* operation area */
 .operation {
-  background-color: teal;
+  border-radius: 4px;
   padding: 2rem;
+}
+
+.operation--transfer {
+  background-color: darkgoldenrod;
+}
+.operation--loan {
+  background-color: green;
+}
+.operation--close {
+  background-color: red;
 }
 
 .form {
@@ -58,9 +107,21 @@ nav {
 
 .form__input {
   width: 100%;
+  border: none;
+  opacity: 0.5;
+  border-radius: 4px;
 }
 
+.form__btn {
+  border: none;
+  background-color: #fff;
+  width: 4.8rem;
+  border-radius: 4px;
+}
+/* footer area */
 .summary {
   grid-row: 5/6;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
