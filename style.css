@@ -146,6 +146,7 @@ nav {
   background-color: #fff;
   width: 4.8rem;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .form__label {
