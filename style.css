@@ -179,3 +179,7 @@ nav {
 .summary__value--out {
   color: red;
 }
+
+.btn--sort {
+  cursor: pointer;
+}
