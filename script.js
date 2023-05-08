@@ -166,6 +166,14 @@ const updateUI = function (currentAccount) {
   calDisplaySummary(currentAccount);
 };
 
+const startLogOutTimer = function () {
+  let time = 100;
+  setInterval(function () {
+    labelTimer.textContent = time;
+    time--; // timer decreases by 1 every second
+  }, 1000);
+};
+
 // login functionality
 let currentAccount;
 btnLogin.addEventListener("click", function (e) {
@@ -208,6 +216,8 @@ btnLogin.addEventListener("click", function (e) {
     // clear input fields
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
+
+    startLogOutTimer();
 
     updateUI(currentAccount);
   }
