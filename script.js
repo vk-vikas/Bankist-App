@@ -167,11 +167,21 @@ const updateUI = function (currentAccount) {
 };
 
 const startLogOutTimer = function () {
-  let time = 100;
-  setInterval(function () {
-    labelTimer.textContent = time;
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = time % 60;
+    labelTimer.textContent = `${min}:${sec}`;
+
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = "Login to get started";
+      containerApp.style.opacity = 0;
+    }
     time--; // timer decreases by 1 every second
-  }, 1000);
+  };
+  let time = 10;
+  tick();
+  const timer = setInterval(tick, 1000);
 };
 
 // login functionality
