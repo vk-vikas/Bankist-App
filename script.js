@@ -166,6 +166,7 @@ const updateUI = function (currentAccount) {
   calDisplaySummary(currentAccount);
 };
 
+// timer
 const startLogOutTimer = function () {
   const tick = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
@@ -179,13 +180,14 @@ const startLogOutTimer = function () {
     }
     time--; // timer decreases by 1 every second
   };
-  let time = 10;
+  let time = 120;
   tick();
   const timer = setInterval(tick, 1000);
+  return timer;
 };
 
 // login functionality
-let currentAccount;
+let currentAccount, timer;
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
   currentAccount = accounts.find(
@@ -227,7 +229,10 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
-    startLogOutTimer();
+    // if timer was running for a user and we login to another
+    // we clear the old timer and start a new one
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
 
     updateUI(currentAccount);
   }
@@ -257,6 +262,10 @@ btnTransfer.addEventListener("click", function (e) {
     receiverAcc.movementsDates.push(new Date().toISOString());
 
     updateUI(currentAccount);
+
+    // reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -291,6 +300,9 @@ btnLoan.addEventListener("click", function (e) {
     currentAccount.movementsDates.push(new Date().toISOString());
 
     updateUI(currentAccount);
+    // reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
